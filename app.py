@@ -17,20 +17,22 @@ def main():
     st.markdown(
         """
         <style>
-        /* 1. White cards, markdown text, headings aur subheadings ko target karke pure black karo */
-        div[data-testid="stVerticalBlock"] p,
-        div[data-testid="stVerticalBlock"] h1,
-        div[data-testid="stVerticalBlock"] h2,
-        div[data-testid="stVerticalBlock"] h3,
-        div[data-testid="stMarkdownContainer"] p,
-        div[data-testid="stMarkdownContainer"] h1,
-        div[data-testid="stMarkdownContainer"] h2,
-        div[data-testid="stMarkdownContainer"] h3,
-        span[data-font="sans serif"] {
-            color: #111111 !important;
+        /* 1. Input boxes ka background clean white aur typed text ko pure black karo */
+        .stTextInput input {
+            color: #111111 !important; /* Jo text type hoga woh ekdam saaf black dikhega */
+            background-color: #ffffff !important; /* Input box ka background pure white rahega */
+            border: 1px solid #cccccc !important; /* Professional light grey border */
+            font-size: 1rem !important;
+            border-radius: 6px !important;
+        }
+        
+        /* Input box par click karne par red highlight (Optional/Clean active state) */
+        .stTextInput input:focus {
+            border-color: #ff4b4b !important;
+            box-shadow: 0 0 0 1px #ff4b4b !important;
         }
 
-        /* 2. Login/Register Form ke text inputs ke labels (Enter username, password) ko high contrast karo */
+        /* 2. Form widget ke labels ko bold aur high contrast black karo (Enter username, Enter password) */
         label[data-testid="stWidgetLabel"] p, 
         .stWidgetLabel p,
         div[data-testid="stWidgetLabel"] span {
@@ -38,17 +40,22 @@ def main():
             font-weight: 600 !important;
         }
 
-        /* 3. Main buttons ke andar ka text clean white lock rahe taaki background par chamke */
+        /* 3. Badi headings aur baaki ke normal texts ko pure black karo (Login using password etc.) */
+        div[data-testid="stMarkdownContainer"] h1,
+        div[data-testid="stMarkdownContainer"] h2,
+        div[data-testid="stMarkdownContainer"] h3,
+        div[data-testid="stMarkdownContainer"] p,
+        span[data-font="sans serif"],
+        div[data-testid="stVerticalBlock"] p {
+            color: #111111 !important;
+        }
+
+        /* 4. Buttons ka text clean white lock rahe taaki unke colorful background par sahi baithe */
         .stButton>button, 
         .stButton>button p, 
         .stButton>button span {
             color: #ffffff !important;
             font-weight: 600 !important;
-        }
-        
-        /* 4. TextInput containers ke placeholders/input text values ko sharp black/dark rakho */
-        .stTextInput input {
-            color: #111111 !important;
         }
         </style>
         """,
