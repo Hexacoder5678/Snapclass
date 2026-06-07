@@ -13,26 +13,44 @@ def main():
         layout="wide"  
     )
 
-    
+    # 🛠️ THE MASTER SYSTEM CONFIG: Text, Inputs, and Dialog Modals
     st.markdown(
         """
         <style>
-        /* 1. Input boxes ka background clean white aur typed text ko pure black karo */
+        /* 1. DIALOG / POPUP FIX: Popup modal ka background white aur uske andar ka text black */
+        div[role="dialog"], 
+        div[data-testid="stModal"],
+        div[data-testid="stDialog"] div,
+        div[role="dialog"] div[data-testid="stVerticalBlock"] {
+            background-color: #ffffff !important;
+        }
+        
+        div[role="dialog"] h1, 
+        div[role="dialog"] h2, 
+        div[role="dialog"] h3, 
+        div[role="dialog"] p,
+        div[role="dialog"] span,
+        div[data-testid="stModal"] p,
+        div[data-testid="stModal"] h3,
+        div[data-testid="stModal"] span {
+            color: #111111 !important; /* Popup ke andar ka sab kuch dark black */
+        }
+
+        /* 2. INPUT BOXES FIX: Input box background white aur typed text pure black */
         .stTextInput input {
-            color: #111111 !important; /* Jo text type hoga woh ekdam saaf black dikhega */
-            background-color: #ffffff !important; /* Input box ka background pure white rahega */
-            border: 1px solid #cccccc !important; /* Professional light grey border */
+            color: #111111 !important; 
+            background-color: #ffffff !important; 
+            border: 1px solid #cccccc !important; 
             font-size: 1rem !important;
             border-radius: 6px !important;
         }
         
-        /* Input box par click karne par red highlight (Optional/Clean active state) */
         .stTextInput input:focus {
             border-color: #ff4b4b !important;
             box-shadow: 0 0 0 1px #ff4b4b !important;
         }
 
-        /* 2. Form widget ke labels ko bold aur high contrast black karo (Enter username, Enter password) */
+        /* 3. WIDGET LABELS FIX: Widget labels ko bold aur clear black karo (Enter username, password) */
         label[data-testid="stWidgetLabel"] p, 
         .stWidgetLabel p,
         div[data-testid="stWidgetLabel"] span {
@@ -40,7 +58,7 @@ def main():
             font-weight: 600 !important;
         }
 
-        /* 3. Badi headings aur baaki ke normal texts ko pure black karo (Login using password etc.) */
+        /* 4. HEADINGS & MARKDOWN FIX: Normal pages ki headings aur text ko pure black karo */
         div[data-testid="stMarkdownContainer"] h1,
         div[data-testid="stMarkdownContainer"] h2,
         div[data-testid="stMarkdownContainer"] h3,
@@ -50,7 +68,7 @@ def main():
             color: #111111 !important;
         }
 
-        /* 4. Buttons ka text clean white lock rahe taaki unke colorful background par sahi baithe */
+        /* 5. BUTTONS FIX: Main buttons ke andar ka text clean white hi lock rahe */
         .stButton>button, 
         .stButton>button p, 
         .stButton>button span {
