@@ -12,28 +12,43 @@ def main():
         page_icon="https://i.ibb.co/YTYGn5qV/logo.png",
         layout="wide"  
     )
+
+    
     st.markdown(
         """
         <style>
-        /* Sirf white rounded columns aur cards ke andar ke text ko charcoal black karo */
-        div[style*="background-color"] p,
-        div[style*="background-color"] h1,
-        div[style*="background-color"] h2,
-        div[style*="background-color"] h3,
-        .stHeadingContainer h2,
-        .stHeadingContainer h3 {
-            color: #1a1a1a !important;
-        }
-        
-        /* Main blue screen ke headings aur welcome text ko white rehne do */
-        .stApp h1, .stApp h2, .stApp p {
-            text-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+        /* 1. White cards, markdown text, headings aur subheadings ko target karke pure black karo */
+        div[data-testid="stVerticalBlock"] p,
+        div[data-testid="stVerticalBlock"] h1,
+        div[data-testid="stVerticalBlock"] h2,
+        div[data-testid="stVerticalBlock"] h3,
+        div[data-testid="stMarkdownContainer"] p,
+        div[data-testid="stMarkdownContainer"] h1,
+        div[data-testid="stMarkdownContainer"] h2,
+        div[data-testid="stMarkdownContainer"] h3,
+        span[data-font="sans serif"] {
+            color: #111111 !important;
         }
 
-        /* Buttons ke text ko white pe lock rakho aur cursor pointer banao */
-        .stButton>button {
+        /* 2. Login/Register Form ke text inputs ke labels (Enter username, password) ko high contrast karo */
+        label[data-testid="stWidgetLabel"] p, 
+        .stWidgetLabel p,
+        div[data-testid="stWidgetLabel"] span {
+            color: #111111 !important;
+            font-weight: 600 !important;
+        }
+
+        /* 3. Main buttons ke andar ka text clean white lock rahe taaki background par chamke */
+        .stButton>button, 
+        .stButton>button p, 
+        .stButton>button span {
             color: #ffffff !important;
-            font-weight: 600;
+            font-weight: 600 !important;
+        }
+        
+        /* 4. TextInput containers ke placeholders/input text values ko sharp black/dark rakho */
+        .stTextInput input {
+            color: #111111 !important;
         }
         </style>
         """,
